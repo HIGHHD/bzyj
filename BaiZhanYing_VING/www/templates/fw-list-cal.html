@@ -1,0 +1,104 @@
+<ion-view view-title="tab-fwlcal"  hide-tabs>
+
+
+    <ion-header-bar align-title="left" class="bar-positive">
+        <div class="buttons ">
+            <button class="button button-clear icon-left ion-ios-arrow-back" ng-click="go('tab.fw');">
+                主页
+            </button>
+
+        </div>
+    </ion-header-bar>
+
+
+
+
+   <ion-content class="padding">
+       <form class="col">
+           <div class="list">
+               <h4>开始输入：</h4>
+               <div class="item item-input-inset">
+                   <span>总资金：&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                   <label class="item-input-wrapper item-icon-right">
+
+                       <input type="text" ng-model="totalMoney" name="totalMoney" >
+                       <!--<a class="button button-clear icon-right ion-android-arrow-dropdown">北京</a>-->
+                       <!--<i class="radio-icon ion-android-radio-button-on"></i>-->
+                   </label>
+                   <span>&nbsp;元</span>
+               </div>
+               <div class="item item-input-inset">
+                   <span>开仓比例： </span>
+                   <label class="item-input-wrapper">
+                       <input type="text" ng-model="transProportion" name="transProportion">
+                   </label>
+                   <span>&nbsp;%</span>
+               </div>
+
+               <div class="item item-input-inset">
+                   <span>合约名称： </span>
+                   <label class="item-input-wrapper">
+                       <input type="text" ng-model="contractName" name="contractName">
+                   </label>
+                   <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+               </div>
+
+               <div class="item item-input-inset">
+                   <span >合约吨数： </span>
+                   <label class="item-input-wrapper">
+                       <input type="text" ng-model="tonnes" name="tonnes">
+                   </label>
+                   <span>&nbsp;吨</span>
+               </div>
+
+               <label class="item item-input-inset item-select" >
+                   <span >保证金比例：</span>
+                   <select ng-model="prefGender" ng-options="gender.name for gender in preferences.gender"  ng-change="chang(prefGender)" style="margin-top: -5px;margin-bottom: -5px;" >
+                   </select>
+               </label>
+             <!--  <label class="item item-input item-select" >
+                   <span class="input-label">保证金比例：</span>
+                   <select ng-model="1">
+                       <option value="{{key}}" ng-repeat="(key,val) in myConfig.expected_salary" ng-selected="key==1">{{val}}</option>
+                   </select>
+               </label>-->
+
+               <div class="item item-input-inset">
+                   <span>风险价差： </span>
+                   <label class="item-input-wrapper">
+                       <input type="text" ng-model="riskSpread" name="riskSpread">
+                   </label>
+                   <span>&nbsp;元</span>
+               </div>
+
+               <br>
+               <div>
+                   <button class="button button-calm button-small" ng-click="cal(totalMoney,transProportion,contractName,tonnes,riskSpread)" style="width:49%;">
+                       计算
+                   </button>
+                   <button class="button button-calm button-small" type="reset" style="width:49%;">
+                       重置
+                   </button>
+               </div>
+           </div>
+
+           <h4>计算结果：</h4>
+
+           <div class="item item-input-inset">
+               <span>开仓手数：</span>
+               <label class="item-input-wrapper">
+                   <input type="text" ng-model="openLots" disabled>
+               </label>
+               <span>手</span>
+           </div>
+           <div class="item item-input-inset">
+               <span>保证金数：</span>
+               <label class="item-input-wrapper">
+                   <input type="text" ng-model="bail" disabled>
+               </label>
+               <span>元</span>
+           </div>
+
+       </form>
+   </ion-content>
+</ion-view>

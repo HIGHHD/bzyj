@@ -1,0 +1,27 @@
+<ion-view view-title="文字">
+    <ion-header-bar align-title="left" class="bar-positive">
+        <div class="buttons ">
+            <button class="button button-clear icon-left ion-ios-arrow-back" ng-click="go('wo-storeup');">
+                收藏列表
+            </button>
+        </div>
+        <h1 class="title">文字</h1>
+
+            <div class="buttons">
+                <button class="button button-clear button-light button-outline" ng-click="addStoreWenZi();">
+                    完成
+                </button>
+        </div>
+    </ion-header-bar>
+<!--    <ion-nav-buttons side="right">
+        <button class="button button-positive button-outline" ng-click="addStore()">
+            完成
+        </button>
+    </ion-nav-buttons>-->
+    <ion-content>
+
+        <label class="item item-input">
+            <textarea ng-model="item.content" rows="30"></textarea>
+        </label>
+    </ion-content>
+</ion-view>
