@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.zlqh.bzyj.thirdLoginPlugin"
+        version="1.0.0">
+
+    <name>thirdLoginPlugin</name>
+
+    <description>
+        a plugin for zlqh to thirdLogin
+    </description>
+    <keywords>login</keywords>
+
+    <license>Apache 2.0</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/thirdLoginPlugin.js" name="ThirdLoginPlugin">
+        <clobbers target="com.zlqh.bzyj.thirdLoginPlugin" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ThirdLoginPlugin">
+                <param name="ios-package" value="ShareLoginAuth"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/ShareLoginAuth.h" />
+        <source-file src="src/ios/ShareLoginAuth.m" />
+
+        <framework src="src/ios/QQ/TencentOpenAPI.framework" custom="true" />
+        <resource-file src="src/ios/QQ/TencentOpenApi_IOS_Bundle.bundle" />
+        
+        <header-file src="src/ios/WeChat/WechatAuthSDK.h" />
+        <header-file src="src/ios/WeChat/WXApi.h" />
+        <header-file src="src/ios/WeChat/WXApiObject.h" />
+        <source-file src="src/ios/WeChat/libWeChatSDK.a" framework="true" />
+        
+        <framework src="libsqlite3.tbd" weak="true" />
+        <framework src="libiconv.tbd" weak="true" />
+        <framework src="libz.tbd" weak="true" />
+        <framework src="libc++.tbd" weak="true" />
+        <framework src="libstdc++.tbd" weak="true" />
+        <framework src="CoreTelephony.framework" weak="true" />
+        <framework src="CoreGraphics.framework" weak="true" />
+        <framework src="SystemConfiguration.framework" weak="true" />
+        
+    </platform>
+
+</plugin>

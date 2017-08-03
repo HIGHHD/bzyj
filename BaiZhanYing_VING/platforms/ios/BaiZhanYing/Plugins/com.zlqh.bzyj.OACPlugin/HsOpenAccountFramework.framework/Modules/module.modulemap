@@ -1,0 +1,6 @@
+framework module HsOpenAccountFramework {
+  umbrella header "HsOpenAccountFramework.h"
+
+  export *
+  module * { export * }
+}

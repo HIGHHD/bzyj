@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.zlqh.bzyj.OACPlugin"
+        version="2.0.0">
+
+    <name>OACPlugin</name>
+
+    <description>
+        a plugin for zlqh to open account
+    </description>
+    <keywords>iosOAC</keywords>
+
+    <license>Apache 2.0</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/iosOAC.js" name="OpenAccount">
+        <clobbers target="com.zlqh.bzyj.OACPlugin" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="OpenAccount">
+                <param name="ios-package" value="LaunchOAC"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/LaunchOAC.h" />
+        <source-file src="src/ios/LaunchOAC.m" />
+
+        <resource-file src="src/ios/HsOpenAccountRes.bundle"/>
+        <framework  src="src/ios/HsOpenAccountFramework.framework" custom="true" />
+        <resource-file src="src/ios/sjkh-config-sdk.plist"/>
+
+    </platform>
+
+</plugin>

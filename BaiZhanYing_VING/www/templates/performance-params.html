@@ -1,0 +1,39 @@
+<ion-view view-title="查看业绩参数设置" can-swipe-back="false">
+    <!--view-title="登录"-->
+    <ion-header-bar align-title="center" class="bar-positive">
+
+        <div class="buttons ">
+
+            <button class="button button-clear icon-left ion-ios-arrow-back" ng-click="go('tab.fw');">
+                主页
+            </button>
+
+        </div>
+
+        <h1 class="title">参数设置</h1>
+
+    </ion-header-bar>
+    <ion-content>
+        <!--<div class="list card" style="text-align: center">
+            <h2 style="white-space: normal;">资金账号登录</h2>
+        </div>-->
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">开始日期：</span>
+                <input type="date" ng-model="params.startday">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">结束日期：</span>
+                <input type="date" ng-model="params.endday">
+            </label>
+        </div>
+        <div class="padding">
+            <button class="button button-block button-positive" ng-click="confirm(params)">
+                确定
+            </button>
+            <p class="text-center">
+                <a href="#/accountloginin/2">切换资金账号</a>
+            </p>
+        </div>
+    </ion-content>
+</ion-view>

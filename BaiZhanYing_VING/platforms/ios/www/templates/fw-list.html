@@ -1,0 +1,63 @@
+<ion-view view-title="{{star.newName || star.name}}">
+    <ion-header-bar align-title="left" class="bar-positive">
+
+        <div class="buttons ">
+
+            <button class="button button-clear icon-left ion-ios-arrow-back" ng-click="go('tab.fw');">
+                主页
+            </button>
+
+        </div>
+
+        <h1 class="title">{{star.newName || star.name}}</h1>
+
+    </ion-header-bar>
+    <ion-content class="padding" delegate-handle="mainScroll" >
+        <ion-refresher
+                pulling-text="加载更多..."
+                refreshing-text="正在加载..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-list>
+           <ion-item class="item-remove-animate item-avatar item-icon-right"
+                      ng-repeat="fwList in fwLists | orderBy:'dateTime':true" ng-if="star.category == 5" type="item-text-wrap"
+                     ng-click="checkUserIsBuy('{{fwList.id}}','{{star.id}}','{{star.category}}','{{star.eStarUserId}}','{{fwList.isPDF}}','{{fwList.addFile}}')">
+                <img ng-src="{{fwList.headImg == 'undefined'?'img/sign_in.png':fwList.headImg}}" style="max-width: 40px;max-height: 40px;">
+                <h2 style="white-space: normal;">{{fwList.title == null || fwList.title == 'undefined' ? '':fwList.title}}</h2>
+                <p style="font-size: 14px; white-space: normal;" class = "messageImg" ng-bind-html=fwList.message></p>
+                <p style="text-align: right; font-size: xx-small;">{{fwList.dateTime | date : 'yyyy年MM月dd日 HH:mm:ss'}}</p>
+
+                <ion-option-button class="button-positive"
+                                   ng-click="addStoreStarInfo(fwList)">
+                    收藏
+                </ion-option-button>
+            </ion-item>
+            <!--
+            列表方式
+            -->
+            <ion-item class="item-remove-animate item-avatar item-icon-right"
+                      ng-repeat="fwList in fwLists |orderBy:'dateTime':true"  ng-if="star.category != 5" type="item-text-wrap"
+                      ng-click="checkUserIsBuy('{{fwList.id}}','{{star.id}}','{{star.category}}','{{star.eStarUserId}}','{{fwList.isPDF}}','{{fwList.addFile}}')">
+                <img ng-src="{{fwList.headImg == 'undefined'||fwList.headImg == null ? 'img/sign_in.png':fwList.headImg}}" style="max-width: 40px;max-height: 40px;">
+                <h2 style="white-space: normal;">{{fwList.title == null || fwList.title == 'undefined' ? '':fwList.title}}</h2>
+                <!--<p ng-if="isVECstarId" style="font-size: 14px; white-space: normal;" class = "messageImg" ng-bind-html=fwList.message></p>-->
+                <p style="text-align: right; font-size: xx-small;">{{fwList.dateTime | date : 'yyyy年MM月dd日 HH:mm:ss'}}</p>
+
+                <ion-option-button class="button-positive"
+                                   ng-click="addStoreStarInfo(fwList)">
+                    收藏
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll
+                ng-if="hasMoreData"
+                on-infinite="loadMore()"
+                distance="1%"
+                >
+        </ion-infinite-scroll>
+    </ion-content>
+
+
+
+
+</ion-view>

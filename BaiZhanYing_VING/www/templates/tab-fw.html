@@ -1,0 +1,156 @@
+
+<ion-view view-title="主页" class="bar-balanced">
+    <div class="bar bar-header" style="height:75px; line-height: 75px; padding: 0px;">
+        <div ng-if="!isVisitor" style="width: 100%; height: 75px; line-height: 75px; font-size: 14px; border: 1px solid #cc2311; background-color: #ef4e3a; margin-bottom: 5px;">
+            <!--<img ng-src="{{businessUserAvatar || 'img/man_60.png'}}" style="height: 60px; width: 60px; margin-top: 0px; margin-left: 20px; padding: 0; vertical-align:middle;" ng-if="businessUserFlag"/>&nbsp;&nbsp;<font color="white" ng-if="businessUserFlag">为您服务</font>
+            <span ng-if="!businessUserFlag">还没有业务员？<button ng-click="scan22()">马上绑定</button>or<a ng-href="#/tj-ywy">推荐业务员</a></span>-->
+            <span style="margin-left: 10px;">您好，欢迎使用百战赢+</span>
+        </div>
+        <div ng-if="isVisitor" style="width: 100%; height: 75px; line-height: 75px; font-size: 16px; border: 1px solid #cc2311; background-color: #ef4e3a; margin-bottom: 5px;">
+            <span style="margin-left: 10px;">想使用更多功能，请<a ng-href="#/sign-in">登录</a>APP</span>
+        </div>
+    </div>
+    <div class="bar bar-subheader" style=" top: 95px;">
+        <!--<div class="button-bar">-->
+            <!--<a id = "id_ts" class="button button-clear button-positive" ng-class="slideIndex==0?'current':''" ng-click="activeSlide(0)" style="font-size: 0.7rem;">-->
+                <!--中粮推荐-->
+            <!--</a>-->
+            <!--<a id = "id_zx" class="button button-clear button-positive" ng-class="slideIndex==1?'current':''" ng-click="activeSlide(1)" style="font-size: 0.7rem;">-->
+                <!--市场热点-->
+            <!--</a>-->
+            <!--<a id = "id_bg" class="button button-clear button-positive" ng-class="slideIndex==2?'current':''" ng-click="activeSlide(2)" style="font-size: 0.7rem;">-->
+                <!--经典报告-->
+            <!--</a>-->
+            <!--<a id = "id_sp" class="button button-clear button-positive" ng-class="slideIndex==3?'current':''" ng-click="activeSlide(3)" style="font-size: 0.7rem;">-->
+                <!--部门团队-->
+            <!--</a>-->
+            <!--<a id = "id_lc" class="button button-clear button-positive" ng-class="slideIndex==4?'current':''" ng-click="activeSlide(4)" style="font-size: 0.6rem;">-->
+                <!--我的订制-->
+            <!--</a>-->
+        <!--</div>-->
+        <div class="button-bar main-bar">
+            <a  ng-click="activeSlide(0)"
+                ng-class="{true: 'button button-striped', false: 'button button-striped-none'}[slideIndex==0]">中粮推荐</a>
+            <a  ng-click="activeSlide(1)"
+                ng-class="{true: 'button button-striped', false: 'button button-striped-none'}[slideIndex==1]">市场热点</a>
+            <a  ng-click="activeSlide(2)"
+                ng-class="{true: 'button button-striped', false: 'button button-striped-none'}[slideIndex==2]">经典报告</a>
+            <a  ng-click="activeSlide(3)"
+                ng-class="{true: 'button button-striped', false: 'button button-striped-none'}[slideIndex==3]">部门推荐</a>
+            <a  ng-click="activeSlide(4)"
+                ng-class="{true: 'button button-striped', false: 'button button-striped-none'}[slideIndex==4]">我的订制</a>
+        </div>
+    </div>
+    <ion-content style="top: 139px;">
+        <ion-refresher pulling-text="加载更多..."
+        refreshing-text="正在加载..." on-refresh="doRefresh()"></ion-refresher>
+        <ion-slide-box on-slide-changed="slideChanged(index)" active-slide="slideIndex" auto-play="false" does-continue="fasle" show-pager="false">
+            <!--提示-->
+            <ion-slide>
+                <ion-list item-render-buffer>
+                    <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="ts in tss| orderBy:'createTime':true" type="item-text-wrap" ng-click="checkUserIsBuy('{{ts.id}}','{{ts.name}}','{{ts.price}}','{{ts.description}}','{{ts.badge}}','{{ts.category}}','{{ts.eStarUserId}}','{{ts.needBuy}}')">
+                        <img ng-src="{{ts.headImg == 'undefined' ? 'img/email.png':ts.headImg}}" style="max-width: 55px;max-height: 55px;border-radius:0%;margin-top: 5px;">
+                        <span class="badge badge-assertive" ng-if="ts.badge">{{ts.badge}}</span>
+                        <div style="padding-left: 5px; height: 65px;line-height: 65px;">
+                            <div style="width:8em"><h2 style="display: inline;white-space: pre-wrap">{{ts.newName || ts.name}}</h2></div><div  ng-if="ts.needBuy==1" style="float:right;margin-top: -18px;"><h2>{{"¥"+ts.price+".00/月"}}</h2></div>
+                            <div  ng-if="ts.needBuy!=1" style="float:right;margin-top: 0px;"><h2 style="color:red">{{ts.price}}</h2></div>
+                            <div style="height:20px;"><p style="font-size: 14px;">{{ts.lastStarInfoTitle}}</p></div>
+                            <p style="text-align: right; font-size: xx-small;">{{ts.buyEndTime | date:'yyyy年MM月dd日 HH:mm:ss'}}</p>
+                            <!--<div>
+                                <div style="width:20%;float:left">
+                                    <button id="star_{{ts.id}}" status="{{ts.isSubscribe}}" class="button button-small button-stable" ng-click="doSubscribe('{{ts.id}}');$event.stopPropagation()">订阅</button>
+                                </div>
+                                <div style="width:60%;text-align: right;float:right">
+                            <p style="font-size: xx-small;">{{ts.buyEndTime | date:'yyyy年MM月dd日 HH:mm:ss'}}</p>
+                                </div>
+                            </div>-->
+                        </div>
+
+                        <i class="icon ion-chevron-right icon-accessory"></i>
+
+                    </ion-item>
+                </ion-list>
+            </ion-slide>
+            <!--资讯-->
+            <ion-slide>
+                <ion-list>
+                    <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="zx in zxs | orderBy:'createTime':true"  type="item-text-wrap" ng-click="checkUserIsBuy('{{zx.id}}','{{zx.name}}','{{zx.price}}','{{zx.description}}','{{zx.badge}}','{{zx.category}}','{{zx.eStarUserId}}','{{zx.needBuy}}')">
+                        <img ng-src="{{zx.headImg == 'undefined' ?  'img/cjtt.png':zx.headImg}}" style="max-width: 55px;max-height: 55px;border-radius:0%;">
+                        <span class="badge badge-assertive" ng-if="zx.badge">{{zx.badge}}</span>
+                        <div style="padding-left: 5px; height: 65px;">
+                            <div style="width:8em"><h2 style="display: inline;white-space: pre-wrap">{{zx.newName || zx.name}}</h2></div><div  ng-if="zx.needBuy==1" style="float:right;margin-top: -18px;"><h2>{{"¥"+zx.price+".00/月"}}</h2></div>
+                            <div  ng-if="zx.needBuy!=1" style="float:right;margin-top: 0px;"><h2 style="color:red">{{zx.price}}</h2></div>
+                            <div style="height:20px;"><p style="font-size: 14px;">{{zx.lastStarInfoTitle}}</p></div>
+                            <p style="text-align: right; font-size: xx-small;">{{zx.buyEndTime | date:'yyyy年MM月dd日 HH:mm:ss'}}</p>
+                            <!--<div>
+                                <div style="width:20%;float:left">
+                                    <button id="star_{{zx.id}}" status="{{zx.isSubscribe}}" class="button button-small button-stable" ng-click="doSubscribe('{{zx.id}}');$event.stopPropagation()"><span ng-if="zx.isSubscribe=='1'">取消</span><span ng-if="zx.isSubscribe!='1'">订阅</span></button>
+                                </div>
+                                <div style="width:60%;text-align: right;float:right;vertical-align: middle">
+                                    <p style="font-size: xx-small;">{{zx.buyEndTime | date:'yyyy年MM月dd日 HH:mm:ss'}}</p>
+                                </div>
+                            </div>-->
+                        </div>
+
+                        <i class="icon ion-chevron-right icon-accessory"></i>
+
+                    </ion-item>
+                </ion-list>
+            </ion-slide>
+            <!--报告-->
+            <ion-slide>
+                <ion-list>
+                    <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="bg in bgs| orderBy:'createTime':true" type="item-text-wrap" ng-click="checkUserIsBuy('{{bg.id}}','{{bg.name}}','{{bg.price}}','{{bg.description}}','{{bg.badge}}','{{bg.category}}','{{bg.eStarUserId}}','{{bg.needBuy}}')">
+                        <img ng-src="{{bg.headImg == 'undefined' ?  'img/hdgg.png':bg.headImg}}" style="max-width: 55px;max-height: 55px;border-radius:0%;">
+                        <span class="badge badge-assertive" ng-if="bg.badge">{{bg.badge}}</span>
+                        <div style="padding-left: 5px; height: 65px;">
+                            <div style="width:8em"><h2 style="display: inline;white-space: pre-wrap">{{bg.newName || bg.name}}</h2></div><div  ng-if="bg.needBuy==1" style="float:right;margin-top: -18px;"><h2>{{"¥"+bg.price+".00/月"}}</h2></div>
+                            <div  ng-if="bg.needBuy!=1" style="float:right;margin-top: 0px;"><h2 style="color:red">{{bg.price}}</h2></div>
+                            <div style="height:20px;"><p style="font-size: 14px;">{{bg.lastStarInfoTitle}}</p></div>
+                            <p style="text-align: right; font-size: xx-small;">{{bg.buyEndTime | date:'yyyy年MM月dd日 HH:mm:ss'}}</p>
+                        </div>
+
+                        <i class="icon ion-chevron-right icon-accessory"></i>
+
+                    </ion-item>
+                </ion-list>
+            </ion-slide>
+            <!--视频-->
+            <ion-slide>
+                <ion-list>
+                    <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="sp in sps| orderBy:'createTime':true" type="item-text-wrap" ng-click="checkUserIsBuy('{{sp.id}}','{{sp.name}}','{{sp.price}}','{{sp.description}}','{{sp.badge}}','{{sp.category}}','{{sp.eStarUserId}}','{{sp.needBuy}}')">
+                        <img ng-src="{{sp.headImg == 'undefined' ?  'img/xqsd.png':sp.headImg}}" style="max-width: 55px;max-height: 55px;border-radius:0%;">
+                        <span class="badge badge-assertive" ng-if="sp.badge">{{sp.badge}}</span>
+                        <div style="padding-left: 5px; height: 65px;">
+                            <div style="width:8em"><h2 style="display: inline;white-space: pre-wrap">{{sp.newName || sp.name}}</h2></div><div  ng-if="sp.needBuy==1" style="float:right;margin-top: -18px;"><h2>{{"¥"+sp.price+".00/月"}}</h2></div>
+                            <div  ng-if="sp.needBuy!=1" style="float:right;margin-top: 0px;"><h2 style="color:red">{{sp.price}}</h2></div>
+                            <div style="height:20px;"><p style="font-size: 14px;">{{sp.lastStarInfoTitle}}</p></div>
+                            <p style="text-align: right; font-size: xx-small;">{{sp.buyEndTime | date:'yyyy年MM月dd日 HH:mm:ss'}}</p>
+                        </div>
+
+                        <i class="icon ion-chevron-right icon-accessory"></i>
+
+                    </ion-item>
+                </ion-list>
+            </ion-slide>
+            <!--理财 track by $index-->
+            <ion-slide>
+                <ion-list>
+                    <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="lc in lcs | orderBy:'createTime':true" type="item-text-wrap" ng-click="checkUserIsBuy('{{lc.id}}','{{lc.name}}','{{lc.price}}','{{lc.description}}','{{lc.badge}}','{{lc.category}}','{{lc.eStarUserId}}','{{lc.needBuy}}')">
+                        <img ng-src="{{lc.headImg == 'undefined' ?'img/mrjc_push.png':lc.headImg}}" style="max-width: 55px;max-height: 55px;border-radius:0%;">
+                        <span class="badge badge-assertive" ng-if="lc.badge">{{lc.badge}}</span>
+                        <div style="padding-left: 5px; height: 65px;">
+                            <div style="width:8em"><h2 style="display: inline;white-space: pre-wrap">{{lc.newName || lc.name}}</h2></div><div  ng-if="lc.needBuy==1" style="float:right;margin-top: -18px;"><h2>{{"¥"+lc.price+".00/月"}}</h2></div>
+                            <div  ng-if="lc.needBuy!=1" style="float:right;margin-top: 0px;"><h2 style="color:red">{{lc.price}}</h2></div>
+                            <div style="height:20px;"><p style="font-size: 14px;">{{lc.lastStarInfoTitle}}</p></div>
+                            <p style="text-align: right; font-size: xx-small;">{{lc.buyEndTime | date:'yyyy年MM月dd日 HH:mm:ss'}}</p>
+                        </div>
+
+                        <i class="icon ion-chevron-right icon-accessory"></i>
+
+                    </ion-item>
+                </ion-list>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+</ion-view>

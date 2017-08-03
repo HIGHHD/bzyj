@@ -1,0 +1,123 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+.content-stable {
+background: $stable;
+
+}
+
+.messaging-view {
+
+.scroll {
+min-height: 100%;
+padding: 10px 0 50px;
+
+}
+
+.message {
+
+padding: 0 10px 10px;
+
+.photo {
+height: 44px;
+width: 44px;
+background-color: #d6d6d6;
+background-size: cover;
+float: left;
+font-size: 50px;
+text-align: center;
+border-radius: 50%;
+overflow: hidden;
+}
+.time {
+float: left;
+font-size: xx-small;
+}
+
+.message {
+overflow: hidden;
+padding: 5px 5px 0;
+text-align: left;
+
+
+span {
+background: #fff;
+padding: 10px;
+display: inline-block;
+border : solid 1px #D6D6D6;
+border-radius: 10px;
+text-align: left;
+}
+
+}
+
+&.other {
+.photo {
+float: right;
+}
+.time {
+float: right;
+font-size: xx-small;
+}
+
+.message {
+text-align: right;
+
+span {
+background: #99EF4A;
+text-align: right;
+}
+}
+}
+}
+
+.message-input {
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+height: 50px;
+background: #fff;
+z-index: 20;
+
+input {
+width: 100%;
+height: 100%;
+background: none;
+
+padding: 0 15px;
+}
+}
+}
+.messageImg img{
+max-width: 200px;
+float: left;
+}.messageImg  p{
+white-space: normal;
+}
+
+.cusButtonBottom{
+border-bottom-color: #38f;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+}
+

@@ -1,0 +1,55 @@
+<ion-view view-title="登录">
+    <!--view-title="登录"-->
+    <ion-header-bar align-title="center" class="bar-positive">
+
+        <div class="buttons ">
+
+            <button class="button button-clear icon-left ion-ios-arrow-back" ng-click="go('tab.fw');">
+                主页
+            </button>
+
+        </div>
+
+        <h1 class="title">登录</h1>
+
+    </ion-header-bar>
+    <ion-content>
+        <div class="list card">
+            <div class="item item-image">
+                <img ng-src="img/login_index3.jpg">
+            </div>
+
+
+        </div>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">手机号：</span>
+                <input type="text" ng-model="user.phone">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">密&nbsp;&nbsp;码：</span>
+                <input type="password" ng-model="user.password">
+            </label>
+        </div>
+        <div class="padding">
+            <button class="button button-block button-positive" ng-click="signIn(user)">
+                登录
+            </button>
+            <p class="text-center">
+                <img ng-src="{{'img/icon_w.png'}}" style="width: 1rem;height: 1rem;vertical-align: middle;">
+                <a href="#" style="vertical-align: middle;" ng-click="thirdLogin(1)">微信登录</a>|
+                <img ng-src="{{'img/icon_qq.png'}}" style="width: 1rem;height: 1rem;vertical-align: middle;">
+                <a href="#" style="vertical-align: middle;" ng-click="thirdLogin(2)">QQ登录</a>
+            </p>
+            <p class="text-center">
+                <a href="#/forgot-password">忘记密码</a>
+            </p>
+            <p class="text-center">
+                <a href="#/sign-up">还没有百战赢+账号，注册一个</a>
+            </p>
+            <p class="text-center" ng-if="canUseOpenAccountModule">
+                <a href="#" ng-click="zlkh()">期货交易账号开户</a>
+            </p>
+        </div>
+    </ion-content>
+</ion-view>

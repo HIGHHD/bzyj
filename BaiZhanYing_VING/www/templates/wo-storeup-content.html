@@ -1,0 +1,28 @@
+<ion-view view-title="详情">
+    <ion-header-bar align-title="left" class="bar-positive">
+        <div class="buttons ">
+            <button class="button button-clear icon-left ion-ios-arrow-back" ng-click="go('wo-storeup');">
+                收藏列表
+            </button>
+        </div>
+        <h1 class="title">收藏详情</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list card">
+
+            <div class="item item-avatar">
+                <img src="{{content.headImg}}">
+                <h2>{{content.userName}}</h2>
+            </div>
+
+            <div class="item item-body">
+                <p style="font-size: 14px; white-space: normal;" class = "messageImg" ng-bind-html=content.message></p>
+            </div>
+
+            <div class="item">
+                <h4>收藏于{{content.datetime}}</h4>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

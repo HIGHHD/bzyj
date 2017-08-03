@@ -1,0 +1,29 @@
+.button-bar.main-bar > .button {
+    font-size: 0.8rem;
+    min-height: 34px;
+    height: 34px;
+    line-height: 34px;
+    overflow: visible;
+    padding: 0px;
+    background-color: white;
+    border-left-style: none;
+    border-right-style: none;
+    border-top-style: none;
+    border-radius: 0px; }
+.button-bar.main-bar > .button:before,
+.button-bar.main-bar > .button .icon:before {
+    line-height: 44px; }
+.button-bar.main-bar > .button:first-child {
+    border-radius: 0px; }
+.button-bar.main-bar > .button:last-child {
+    border-radius: 0px; }
+.button-bar.main-bar > .button:only-child {
+    border-radius: 0px; }
+
+.button-bar.main-bar > .button.button-striped-none {
+    color: #0c60ee;
+    border-bottom-color: transparent;}
+.button-bar.main-bar > .button.button-striped {
+    color: #0c60ee;
+    border-bottom-color: #0c60ee;
+    border-bottom-width: 2px;}

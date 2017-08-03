@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>defaultServerNo</key>
+	<integer>0</integer>
+	<key>webServerDomain</key>
+	<string>qhkh.fzzq.finyun.com</string>
+	<key>servers</key>
+	<array>
+		<dict>
+			<key>indexUrl</key>
+			<string>https://appficaos.cfmmc.com/indexnew?befromFlag=ths</string>
+			<key>uploadUrl</key>
+			<string>https://appficaos.cfmmc.com/upload</string>
+			<key>videoServerIp</key>
+			<string>anychat.cfmmc.com</string>
+			<key>videoServerPort</key>
+			<string>8906</string>
+			<key>versionCode</key>
+			<string>16060912</string>
+		</dict>
+		<dict>
+			<key>indexUrl</key>
+			<string>https://appficaos.cfmmc.com/indexnew?befromFlag=ths</string>
+			<key>uploadUrl</key>
+			<string>https://appficaos.cfmmc.com/upload</string>
+			<key>videoServerIp</key>
+			<string>anychat.cfmmc.com</string>
+			<key>videoServerPort</key>
+			<string>8906</string>
+			<key>versionCode</key>
+			<string>16060912</string>
+		</dict>
+		<dict>
+			<key>indexUrl</key>
+			<string>https://appficaos.cfmmc.com/indexnew?befromFlag=ths</string>
+			<key>uploadUrl</key>
+			<string>https://appficaos.cfmmc.com/upload</string>
+			<key>videoServerIp</key>
+			<string>anychat.cfmmc.com</string>
+			<key>videoServerPort</key>
+			<string>8906</string>
+			<key>versionCode</key>
+			<string>16060912</string>
+		</dict>
+	</array>
+</dict>
+</plist>

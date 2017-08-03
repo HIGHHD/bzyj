@@ -1,0 +1,23 @@
+<ion-view view-title="开通VIP">
+    <ion-header-bar align-title="center" class="bar-dark">
+
+        <div class="buttons ">
+
+            <button class="button button-clear icon-left ion-ios-arrow-back" ng-click="prevStep()">
+                上一页
+            </button>
+
+        </div>
+
+        <h1 class="title">{{title}}</h1>
+
+    </ion-header-bar>
+    <ion-content>
+        <div my-contract=""></div>
+        <ion-checkbox ng-model="agreeCheck"><span style="font-size:0.9em;white-space:normal">{{agreement}}</span></ion-checkbox>
+        <button class="button button-block button-positive" ng-disabled="!agreeCheck" ng-click="nextStep()">
+            下一步
+        </button>
+    </ion-content>
+
+</ion-view>

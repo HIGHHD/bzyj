@@ -1,0 +1,68 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.ionic.keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.mynewstock133537"
+        },
+        "com.phonegap.plugins.fileopener": {
+            "PACKAGE_NAME": "com.ionicframework.mynewstock133537"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ionicframework.mynewstock133537"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ionicframework.mynewstock133537"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.mynewstock133537"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.ionicframework.mynewstock133537"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.mynewstock133537"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.ionicframework.mynewstock133537"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.mynewstock133537"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.ionicframework.mynewstock133537"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.ionicframework.mynewstock133537"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.mynewstock133537"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.mynewstock133537"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "CAMERA_USAGE_DESCRIPTION": "To scan barcodes",
+            "PACKAGE_NAME": "com.zlqh.bzyj.zl"
+        },
+        "com.zlqh.bzyj.OACPlugin": {
+            "PACKAGE_NAME": "com.zlqh.bzyj.zl"
+        },
+        "jpush-phonegap-plugin": {
+            "API_KEY": "b4d90108c6e6fba5f3ba54ac",
+            "PACKAGE_NAME": "com.zlqh.bzyj.zl"
+        },
+        "com.zlqh.bzyj.IAPayPlugin": {
+            "PACKAGE_NAME": "com.zlqh.bzyj.zl"
+        },
+        "com.zlqh.bzyj.thirdLoginPlugin": {
+            "PACKAGE_NAME": "com.zlqh.bzyj.test"
+        }
+    },
+    "dependent_plugins": {}
+}

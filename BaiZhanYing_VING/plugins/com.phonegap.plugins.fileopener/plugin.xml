@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+           id="com.phonegap.plugins.fileopener"
+      version="1.0.0">
+    <name>File Opener</name>
+    <description>Cordova InAppBrowser Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,file</keywords>
+
+
+    <js-module src="www/fileopener.js" name="FileOpener">
+        <clobbers target="window.plugins.fileOpener" />
+    </js-module>
+    
+
+
+</plugin>

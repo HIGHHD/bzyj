@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.zlqh.bzyj.IAPayPlugin"
+        version="3.0.0">
+
+    <name>IAPayPlugin</name>
+
+    <description>
+        a plugin for zlqh to make IAP
+    </description>
+    <keywords>IAP</keywords>
+
+    <license>Apache 2.0</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <js-module src="www/iosPay.js" name="JustPay">
+        <clobbers target="com.zlqh.bzyj.IAPayPlugin" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="JustPay">
+                <param name="ios-package" value="CofcoStarIF"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/CofcoStarIF.h" />
+        <source-file src="src/ios/CofcoStarIF.m" />
+
+        <header-file src="src/ios/IAPayViewController.h" />
+        <source-file src="src/ios/IAPayViewController.m" />
+        <resource-file src="src/ios/IAPayViewController.xib" />
+        <header-file src="src/ios/CellForBuildTableViewCell.h" />
+        <source-file src="src/ios/CellForBuildTableViewCell.m" />
+        <resource-file src="src/ios/CellForBuildTableViewCell.xib" />
+        <header-file src="src/ios/StarInfo.h" />
+        <source-file src="src/ios/StarInfo.m" />
+
+        <header-file src="AFNetworking/AFNetworking.h" />
+        <header-file src="AFNetworking/AFHTTPRequestOperation.h" />
+        <source-file src="AFNetworking/AFHTTPRequestOperation.m" />
+        <header-file src="AFNetworking/AFHTTPRequestOperationManager.h" />
+        <source-file src="AFNetworking/AFHTTPRequestOperationManager.m" />
+        <header-file src="AFNetworking/AFHTTPSessionManager.h" />
+        <source-file src="AFNetworking/AFHTTPSessionManager.m" />
+        <header-file src="AFNetworking/AFNetworkReachabilityManager.h" />
+        <source-file src="AFNetworking/AFNetworkReachabilityManager.m" />
+        <header-file src="AFNetworking/AFSecurityPolicy.h" />
+        <source-file src="AFNetworking/AFSecurityPolicy.m" />
+        <header-file src="AFNetworking/AFURLConnectionOperation.h" />
+        <source-file src="AFNetworking/AFURLConnectionOperation.m" />
+        <header-file src="AFNetworking/AFURLRequestSerialization.h" />
+        <source-file src="AFNetworking/AFURLRequestSerialization.m" />
+        <header-file src="AFNetworking/AFURLResponseSerialization.h" />
+        <source-file src="AFNetworking/AFURLResponseSerialization.m" />
+        <header-file src="AFNetworking/AFURLSessionManager.h" />
+        <source-file src="AFNetworking/AFURLSessionManager.m" />
+
+        <resource-file src="src/ios/resources/ic_global_arrow_right_2px.png" />
+        <resource-file src="src/ios/resources/iap.jpg" />
+        <resource-file src="src/ios/resources/zlqh.cer" />
+        <resource-file src="src/ios/resources/server.cer" />
+
+    </platform>
+
+</plugin>
